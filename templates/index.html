@@ -2,22 +2,108 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Predict Infection</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+      }
+      h2 {
+        color: #333;
+      }
+      form {
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 800px;
+      }
+      input[type="text"],
+      select {
+        width: calc(100% - 20px);
+        padding: 8px;
+        margin: 10px 0;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+      input[type="submit"] {
+        background: #28a745;
+        color: #fff;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      input[type="submit"]:hover {
+        background: #218838;
+      }
+      label {
+        font-weight: bold;
+        display: block;
+        margin: 10px 0 5px;
+      }
+    </style>
+    <title>Prever infecção por AIDS</title>
   </head>
   <body>
-    <h2>Predict Infection</h2>
+    <h2>Prever infecção por AIDS</h2>
     <form action="/predict" method="post">
-      Age: <input type="text" name="age" /><br />
-      Weight (kg): <input type="text" name="wtkg" /><br />
-      Hemoglobin: <input type="text" name="hemo" /><br />
-      Homocysteine: <input type="text" name="homo" /><br />
-      Drugs: <input type="text" name="drugs" /><br />
-      Opioids Prior: <input type="text" name="oprior" /><br />
-      Race: <input type="text" name="race" /><br />
-      Gender: <input type="text" name="gender" /><br />
-      Stratification: <input type="text" name="strat" /><br />
-      Symptom: <input type="text" name="symptom" /><br />
-      Treatment: <input type="text" name="treat" /><br />
+      Idade (anos): <input type="text" name="age" required /><br />
+      Peso (kg): <input type="text" name="wtkg" required /><br />
+      Possui Hemofilia:
+      <select name="hemo">
+        <option value="0">Não</option>
+        <option value="1">Sim</option></select
+      ><br />
+      Atividade homosexual:
+      <select name="homo">
+        <option value="0">Não</option>
+        <option value="1">Sim</option></select
+      ><br />
+      Uso recente de medicação intra-venosa:
+      <select name="drugs">
+        <option value="0">Não</option>
+        <option value="1">Sim</option></select
+      ><br />
+      Uso de medicação não antiretroviral:
+      <select name="oprior">
+        <option value="0">Não</option>
+        <option value="1">Sim</option></select
+      ><br />
+      Raça:
+      <select name="race">
+        <option value="0">Branca</option>
+        <option value="1">Não branca</option></select
+      ><br />
+      Gênero:
+      <select name="gender">
+        <option value="0">Mulher</option>
+        <option value="1">Homem</option></select
+      ><br />
+      Uso de medicação antiretroviral:
+      <select name="strat">
+        <option value="1">Antiretroviral simples</option>
+        <option value="2">
+          &gt; 1 porem &lt;= 52 semanas sem terapia antiretroviral
+        </option>
+        <option value="3">&gt; Nas ultimas 52 semanas</option></select
+      ><br />
+      Sintomas de AIDS recentes:
+      <select name="symptom">
+        <option value="0">Assintomático</option>
+        <option value="1">Sintomático</option></select
+      ><br />
+      Tratamento em andamento:
+      <select name="treat">
+        <option value="0">Zidovudina apenas</option>
+        <option value="1">Outros ou nenhum</option></select
+      ><br />
       <input type="submit" value="Predict" />
     </form>
   </body>

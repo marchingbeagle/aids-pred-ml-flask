@@ -58,7 +58,7 @@ def predict():
     # Prepare response as JSON
     response = {'prediction': int(prediction[0])}  # Assuming prediction is binary (0 or 1)
 
-    return jsonify(response)
+    return render_template('result.html', prediction=int(prediction[0]))
 
 if __name__ == '__main__':
     app.run(debug=True)
